@@ -1,7 +1,7 @@
 import React from 'react';
 import './UserOutput.css'
 
-const useroutput = (props) => {
+const userOutput = (props) => {
   return (
     <div className="UserOutput">
       <p>{props.username} paragraph 1</p>
@@ -10,5 +10,5 @@ const useroutput = (props) => {
   )
 };
 
-export default useroutput;
+export default userOutput;
 
