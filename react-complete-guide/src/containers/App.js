@@ -17,7 +17,8 @@ class App extends PureComponent {
       { id: '3', name: 'Stephanie', age: 26}
     ],
     otherState: 'some other variables',
-    showPersons: false
+    showPersons: false,
+    toggleClicked: 0
   }
 
   switchNameHandler = (newName) => {
@@ -61,7 +62,17 @@ class App extends PureComponent {
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({showPersons: !doesShow});
+    // Don't use this, because setState is an asynchroneous function!'
+    // this.setState({
+    //   showPersons: !doesShow,
+    //   toggleClicked: this.state.toggleClicked + 1
+    // });
+    this.setState( (prevState, props) => {
+      return {
+        showPersons: !doesShow,
+        toggleClicked: prevState.toggleClicked + 1
+      }
+    });
   }
 
   componentWillMount() {
