@@ -4,6 +4,9 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 import withClass from '../hoc/withClass'; // importing a function not a component
 
+export const AuthContext = React.createContext(false); // From react 16.3.0
+
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -110,8 +113,7 @@ class App extends PureComponent {
       persons = <Persons
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
-            changed={this.nameChangedHandler}
-            isAuthenticated={this.state.authenticated}/>;
+            changed={this.nameChangedHandler} />;
     }
 
     return (
@@ -123,7 +125,7 @@ class App extends PureComponent {
         persons={this.state.persons}
         login={this.loginHandler}
         clicked={this.togglePersonsHandler}/>
-        {persons}
+        <AuthContext.Provider value={this.state.authenticated}>{persons}</AuthContext.Provider>
       </Fragment>
     );
     // return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Hi, I\'m a React App!!!'));
