@@ -18,7 +18,8 @@ class App extends PureComponent {
     ],
     otherState: 'some other variables',
     showPersons: false,
-    toggleClicked: 0
+    toggleClicked: 0,
+    authenticated: false
   }
 
   switchNameHandler = (newName) => {
@@ -75,6 +76,10 @@ class App extends PureComponent {
     });
   }
 
+  loginHandler = () => {
+    this.setState({authenticated: true});
+  }
+
   componentWillMount() {
     console.log('[App.js] Inside componentWillMount()');
   }
@@ -105,7 +110,8 @@ class App extends PureComponent {
       persons = <Persons
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
-            changed={this.nameChangedHandler} />;
+            changed={this.nameChangedHandler}
+            isAuthenticated={this.state.authenticated}/>;
     }
 
     return (
@@ -115,6 +121,7 @@ class App extends PureComponent {
         appTitle={this.props.title}
         showPersons={this.state.showPersons}
         persons={this.state.persons}
+        login={this.loginHandler}
         clicked={this.togglePersonsHandler}/>
         {persons}
       </Fragment>
