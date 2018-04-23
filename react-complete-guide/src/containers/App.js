@@ -124,3 +124,4 @@ class App extends PureComponent {
 }
 
 export default withClass(App, classes.App);
+// export default App;
