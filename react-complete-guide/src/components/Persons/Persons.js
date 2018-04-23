@@ -9,6 +9,7 @@ class Persons extends PureComponent {
     this.lastPersonRef = React.createRef();
   }
 
+  // Use discouraged from React 16.3.0
   componentWillMount() {
     console.log('[Persons.js] Inside componentWillMount()');
   }
@@ -18,6 +19,7 @@ class Persons extends PureComponent {
     this.lastPersonRef.current.focus();
   }
 
+  // Use discouraged from React 16.3.0
   componentWillReceiveProps(nextProps) {
     console.log('[UPDATE Persons.js] Inside componentWillReceiveProps()', nextProps);
   }
@@ -30,6 +32,7 @@ class Persons extends PureComponent {
   //   // return true;
   // }
 
+  // Use discouraged from React 16.3.0
   componentWillUpdate(nextProps, nextState) {
     console.log('[UPDATE Persons.js] Inside componentWillUpdate()', nextProps, nextState);
   }

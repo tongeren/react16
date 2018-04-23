@@ -83,6 +83,7 @@ class App extends PureComponent {
     this.setState({authenticated: true});
   }
 
+  // Use discouraged from React 16.3.0
   componentWillMount() {
     console.log('[App.js] Inside componentWillMount()');
   }
@@ -97,8 +98,20 @@ class App extends PureComponent {
   //     nextState.showPersons !== this.state.showPersons;
   // }
 
+  // Use discouraged from React 16.3.0
   componentWillUpdate(nextProps, nextState) {
     console.log('[UPDATE App.js] Inside componentWillUpdate()', nextProps, nextState);
+  }
+
+  // New lifecycle hook from React 16.3.0
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('[UPDATE App.js] Inside getDerivedStateFromProps()', nextProps, prevState);
+    return prevState;
+  }
+
+  // New lifecycle hook from React 16.3.0
+  getSnapshotBeforeUpdate() {
+    console.log('[UPDATE App.js] Inside getDerivedStateFromProps()');
   }
 
   componentDidUpdate(nextProps, nextState) {
