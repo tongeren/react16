@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import Courses from './Courses/Courses';
 import Users from './Users/Users';
+import './CoursePage.css';
 
 class CoursePage extends Component {
     render () {
         return (
             <div className="CoursePage">
+                <header>
+                    <nav>
+                        <ul>
+                            <li><NavLink
+                                to="/courses"
+                                exact>Courses</NavLink></li>
+                            <li><NavLink
+                                to="/users"
+                                exact>Users</NavLink></li>
+                        </ul>
+                    </nav>
+                </header>
                 <ol style={{textAlign: 'left'}}>
                     <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)</li>
                     <li>Add a simple navigation with two links => One leading to "Users", one leading to "Courses"</li>
