@@ -47,7 +47,6 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    // See https://medium.com/@jh3y/how-to-update-all-npm-packages-in-your-project-at-once-17a8981860ea
     "update:packages": "node scripts/wipe-dependencies.js &&
     rm -rf node_modules && npm update --save-dev
     && npm update --save"
