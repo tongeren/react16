@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Course from '../../components/Course/Course';
 
 import './Courses.css';
 
@@ -18,7 +19,12 @@ class Courses extends Component {
                 <section className="Courses">
                     {
                         this.state.courses.map( course => {
-                            return <article className="Course" key={course.id}>{course.title}</article>;
+                            return (
+                                <Course
+                                    onClick={course.clicked}
+                                    key={course.id}
+                                    title={course.title}/>
+                            );
                         } )
                     }
                 </section>
