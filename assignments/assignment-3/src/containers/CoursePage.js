@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import Courses from './Courses/Courses';
+import Course from '../components/Course/Course';
 import Users from './Users/Users';
 import Done from '../components/Done/Done';
+import NoMatch from '../components/NoMatch/NoMatch';
+
 import './CoursePage.css';
 
 class CoursePage extends Component {
     render () {
         return (
             <div className="CoursePage">
-                <header>
-                    <nav>
-                        <ul>
-                            <li><NavLink
-                                to="/courses"
-                                exact>Courses</NavLink></li>
-                            <li><NavLink
-                                to="/users"
-                                exact>Users</NavLink></li>
-                        </ul>
-                    </nav>
-                </header>
                 <ol style={{textAlign: 'left'}}>
                     <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)<Done /></li>
                     <li>Add a simple navigation with two links => One leading to "Users", one leading to "Courses"<Done /></li>
@@ -31,9 +22,20 @@ class CoursePage extends Component {
                     <li>Add a 404 error page and render it for any unknown routes</li>
                     <li>Redirect requests to /all-courses to /courses (=> Your "Courses" page)</li>
                 </ol>
+                <header>
+                    <nav>
+                        <ul>
+                            <li><NavLink to="/courses" exact>Courses</NavLink></li>
+                            <li><NavLink to="/users" exact>Users</NavLink></li>
+                        </ul>
+                    </nav>
+                </header>
                 <Switch>
                     <Route path="/courses" component={Courses} />
                     <Route path="/users" component={Users} />
+                    <Route path="/courses/course" component={Course} />
+                    <Redirect from="/all-courses" to="/courses" />
+                    <Route component={NoMatch} />
                 </Switch>
             </div>
         );

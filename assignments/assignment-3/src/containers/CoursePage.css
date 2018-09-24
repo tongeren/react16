@@ -1,15 +1,12 @@
-.CoursePage ul {
+ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    text-align: center;
 }
 
-.CoursePage ul li {
+nav li {
   display: inline-block;
   margin: 20px;
 }
+
 
 .CoursePage a {
   text-decoration: none;
